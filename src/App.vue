@@ -54,11 +54,11 @@ export default {
 			showDialog: false,
 			sortOptions: [
 				{ value: "name", text: "По имени (А-Я)" },
-				{ value: "nameDown", text: "По имени (Я-А)" },
+				{ value: "nameUp", text: "По имени (Я-А)" },
 				{ value: "email", text: "По Email (А-Я)" },
-				{ value: "emailDown", text: "По Email (Я-А)" },
+				{ value: "emailUp", text: "По Email (Я-А)" },
 				{ value: "body", text: "По содержанию (А-Я)" },
-				{ value: "bodyDown", text: "По содержанию (Я-А)" },
+				{ value: "bodyUp", text: "По содержанию (Я-А)" },
 			],
 			selectedOption: "",
 			term: "",
@@ -103,15 +103,15 @@ export default {
 				return [...this.comments].sort((c1, c2) =>
 					c1[this.selectedOption].localeCompare(c2[this.selectedOption])
 				);
-			} else if (this.selectedOption === "nameDown") {
+			} else if (this.selectedOption === "nameUp") {
 				return [...this.comments].sort((c1, c2) =>
 					c2["name"].localeCompare(c1["name"])
 				);
-			} else if (this.selectedOption === "emailDown") {
+			} else if (this.selectedOption === "emailUp") {
 				return [...this.comments].sort((c1, c2) =>
 					c2["email"].localeCompare(c1["email"])
 				);
-			} else if (this.selectedOption === "bodyDown") {
+			} else if (this.selectedOption === "bodyUp") {
 				return [...this.comments].sort((c1, c2) =>
 					c2["body"].localeCompare(c1["body"])
 				);
