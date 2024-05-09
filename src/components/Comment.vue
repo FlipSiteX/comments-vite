@@ -1,5 +1,4 @@
 <template>
-	<!-- Sample Comment 1 -->
 	<div
 		class="flex bg-white justify-between mt-3 p-4 border rounded-lg border-slate-300"
 	>
