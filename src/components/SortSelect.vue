@@ -23,7 +23,7 @@
 export default {
 	props: {
 		sortOptions: {
-			type: Object,
+			type: Array,
 			required: true,
 		},
 		modelValue: {

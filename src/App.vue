@@ -88,12 +88,6 @@ export default {
 		},
 	},
 	computed: {
-		searchComments() {
-			return this.sortElements.filter(
-				(comment) =>
-					comment.name.toLowerCase().includes(this.term.toLowerCase()) || comment.body.toLowerCase().includes(this.term.toLowerCase())
-			);
-		},
 		sortElements() {
 			if (
 				this.selectedOption === "name" ||
@@ -119,6 +113,12 @@ export default {
 				return [...this.comments];
 			}
 		},
+		searchComments() {
+			return this.sortElements.filter(
+				(comment) =>
+					comment.name.toLowerCase().includes(this.term.toLowerCase()) || comment.body.toLowerCase().includes(this.term.toLowerCase())
+			);
+		}
 	},
 	mounted() {
 		this.fetchComments();
