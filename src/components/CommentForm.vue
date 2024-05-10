@@ -45,8 +45,11 @@
 		</h3>
 
 		<button type="button"
-			class="bg-purple-600 text-white font-medium py-2 px-4 rounded hover:bg-purple-500"
-			@click="name && email && body ? $emit('addComment', name, email, body) : isFilled = false"
+			class="bg-purple-600 text-white font-medium
+			py-2 px-4 rounded hover:bg-purple-500"
+			@click="name && email && body
+			? $emit('addComment', name, email, body)
+			: isFilled = false"
 		>
 			Отправить
 		</button>

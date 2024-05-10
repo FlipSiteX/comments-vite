@@ -3,34 +3,23 @@
 		class="w-full rounded-lg border-2 border-purple-600 p-4 my-8 mx-auto max-w-3xl"
 	>
 		<div class="flex justify-between h-10 mb-3">
-			<button
+			<button @click="openDialog"
 				class="bg-purple-600 hover:bg-purple-500 py-2 px-3 rounded text-white font-medium"
-				@click="openDialog"
 			>
 				Добавить комментарий
 			</button>
-			<SortSelect
-				:sortOptions
-				v-model="selectedOption"
-				class="mx-3"
-			/>
+			<SortSelect :sortOptions v-model="selectedOption" class="mx-3"/>
 			<SearchRow v-model="term" />
 		</div>
 
 		<h3 class="font-os text-lg font-bold">Комментарии</h3>
-		<CommentsList
-			:comments="searchComments"
-			@remove="deleteComment"
-		/>
+		<CommentsList :comments="searchComments" @remove="deleteComment"/>
 	</section>
-	<DialogWindow
-		:showDialog
+
+	<DialogWindow :showDialog
 		@closeDialog="showDialog = false"
 	>
-		<CommentForm
-			@addComment="addComment"
-			@closeDialog="showDialog = false"
-		/>
+		<CommentForm @addComment="addComment"/>
 	</DialogWindow>
 </template>
 
@@ -73,15 +62,13 @@ export default {
 			this.comments = this.comments.filter((item) => item.id != id);
 		},
 		addComment(name, email, text) {
-			if (name && email && text) {
-				this.comments.unshift({
-					id: Date.now(),
-					name: name,
-					email: email,
-					body: text,
-				});
-				this.showDialog = false;
-			}
+			this.comments.unshift({
+				id: Date.now(),
+				name: name,
+				email: email,
+				body: text,
+			});
+			this.showDialog = false;
 		},
 		openDialog() {
 			this.showDialog = true;
@@ -116,7 +103,8 @@ export default {
 		searchComments() {
 			return this.sortElements.filter(
 				(comment) =>
-					comment.name.toLowerCase().includes(this.term.toLowerCase()) || comment.body.toLowerCase().includes(this.term.toLowerCase())
+					comment.name.toLowerCase().includes(this.term.toLowerCase())
+					|| comment.body.toLowerCase().includes(this.term.toLowerCase())
 			);
 		}
 	},

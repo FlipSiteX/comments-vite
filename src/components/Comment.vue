@@ -30,7 +30,9 @@
 
 		<div @click="$emit('remove', comment.id)">
 			<i
-				class="fa-solid fa-trash ml-2 cursor-pointer text-slate-400 hover:text-[#ff4242]"
+				class="fa-solid fa-trash ml-2
+				cursor-pointer text-slate-400
+				hover:text-[#ff4242]"
 			></i>
 		</div>
 	</div>
